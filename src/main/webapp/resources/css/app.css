@@ -1,0 +1,84 @@
+/* app css stylesheet */
+body { 
+    padding-top: 100px; 
+}
+
+.sky-logo {
+    margin-top: -15px;
+    width: 80px; 
+    height: 50px; 
+}
+
+.sky-blue {
+	background-color: #0073c5;
+	color: #ffffff;
+}
+
+.total {
+	padding: 2rem;
+    text-align: right;
+}
+
+.navbar-default { 
+	background: #ffffff;
+}
+
+.navbar-text {
+	padding: 0 20px;
+	font-weight: bold;
+}
+
+.navbar-default {
+    border: 0px;
+}
+
+.nav > li > a {
+	background-color: #f4f4f4;
+}
+
+.bill-header {
+	padding: 0 15px;
+}
+
+.bill-header-underline {
+	border-bottom: 1px solid #0073c5;
+}
+
+.info {
+	padding: 25px 25px 0 25px;
+}
+
+.client-info {
+	padding-bottom: 8px;
+	font-weight: bold;
+}
+
+.payment-due-info {
+	font-size: 1.6rem;
+	color: #0073c5;
+	font-weight: bold;
+}
+
+.billing-info {
+	padding: 8px;
+}
+
+.subtotal {
+	font-weight: bold;
+	padding: 2rem;
+    text-align: right;
+}
+
+a {
+	color: #0073c5;
+}
+
+.active a {
+	font-weight: bold;
+}
+
+footer {
+	background-color: #f4f4f4;
+	padding: 25px;
+	border-top: 1px solid #0073c5;
+}

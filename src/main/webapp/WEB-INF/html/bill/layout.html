@@ -1,0 +1,153 @@
+<div class="row bill-header">
+	<div class="col-xs-12 col-md-8 col-md-offset-2 bill-header-underline">
+		<h3>
+			<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+			Your Bill Sumary
+		</h3>
+	</div>
+</div>
+<div class="row info">
+	<div class="col-xs-12 col-md-8 col-md-offset-2">
+		<div class="row">
+			<div class="col-md-7 col-xs-6">
+				<div class="client-info">
+					{{client.name}}
+					<br>
+					{{client.address}}
+					<br>
+					{{client.telephone}}
+				</div>
+				
+			</div>
+			<div class="col-md-5 col-xs-6">
+				<div class="payment-due-info">
+					<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+					Payment Due: {{skybill.statement.due | date:'dd/MM/yyyy'}}	
+				</div>
+				<div class="billing-info">
+					<label>Billing Period:</label> {{skybill.statement.period.from | date:'dd/MM/yyyy'}} to {{skybill.statement.period.to | date:'dd/MM/yyyy'}}
+					<br>
+					<label>Bill Date:</label> {{skybill.statement.generated | date:'dd/MM/yyyy'}}
+				</div>
+			</div>
+		</div>
+		<div class="row total">
+			<h3>Total {{ skybill.total | currency:"&pound;" }}</h3>
+		</div>
+	</div>
+</div>
+<div class="row bill-header">
+	<div class="col-xs-12 col-md-8 col-md-offset-2 bill-header-underline">
+		<h3>
+			<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+			Your Bill Details
+		</h3>
+	</div>
+</div>
+<div class="row info">
+	<div class="col-xs-12 col-md-8 col-md-offset-2">
+		<ul class="nav nav-tabs nav-justified">
+			<li role="presentation" class="active"><a data-target="#package" data-toggle="tab">Package</a></li>
+			<li role="presentation"><a data-target="#calls" data-toggle="tab">Call Charges</a></li>
+			<li role="presentation"><a data-target="#store" data-toggle="tab">Sky Store</a></li>
+		</ul>
+		<div class="tab-content">
+			<!-- Package -->
+		    <div id="package" class="tab-pane active">
+		        <h4>Subscriptions</h4>
+		        <div class="alert alert-info" ng-show="skybill.package.subscriptions == null">No information found</div>
+		        <div class="table-responsive">
+					<table class="table table-responsive table-striped" ng-show="skybill.package.subscriptions.length > 0">
+						<thead>
+							<tr>
+					 			<th>Type</th>
+								<th>Name</th>
+								<th>Cost</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in skybill.package.subscriptions">
+								<td>{{item.type}}</td>
+								<td>{{item.name}}</td>
+								<td>{{item.cost | currency:"&pound;"}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="row subtotal" ng-show="skybill.package.subscriptions.length > 0">
+					<p>Package - Sub Total {{ skybill.package.total | currency:"&pound;"}}</p>
+				</div>
+		    </div>
+
+		    <!-- Calls -->
+		    <div id="calls" class="tab-pane">
+		        <h4>Calls</h4>
+		        <div class="alert alert-info" ng-show="skybill.callCharges.calls == null">No information found</div>
+		        <div class="table-responsive">
+					<table class="table table-responsive table-striped" ng-show="skybill.callCharges.calls.length > 0">
+						<thead>
+							<tr>
+					 			<th>Called</th>
+								<th>Duration</th>
+								<th>Cost</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in skybill.callCharges.calls">
+								<td>{{item.called}}</td>
+								<td>{{item.duration}}</td>
+								<td>{{item.cost | currency:"&pound;"}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="row subtotal" ng-show="skybill.callCharges.calls.length > 0">
+					<p>Calls - Sub Total {{ skybill.callCharges.total | currency:"&pound;" }}</p>
+				</div>
+		    </div>
+
+		    <!-- Sky Store-->
+		    <div id="store" class="tab-pane">
+		        <h4>Rentals</h4>
+		        <div class="alert alert-info" ng-show="skybill.skyStore.rentals == null">No information found</div>
+		        <div class="table-responsive">
+					<table class="table table-striped" ng-show="skybill.skyStore.rentals.length > 0">
+						<thead>
+							<tr>
+					 			<th>Title</th>
+								<th>Cost</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in skybill.skyStore.rentals">
+								<td>{{item.title}}</td>
+								<td>{{item.cost | currency:"&pound;"}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+		        <h4>Buy And Keep</h4>
+		        <div class="alert alert-info" ng-show="skybill.skyStore.buyAndKeep == null">No information found</div>
+		        <div class="table-responsive">
+					<table class="table table-responsive table-striped" ng-show="skybill.skyStore.buyAndKeep.length > 0">
+						<thead>
+							<tr>
+					 			<th>Title</th>
+								<th>Cost</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in skybill.skyStore.buyAndKeep">
+								<td>{{item.title}}</td>
+								<td>{{item.cost | currency:"&pound;"}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="row subtotal" ng-show="skybill.skyStore.rentals.length > 0">
+					<p>Sky Store - Sub Total {{ skybill.skyStore.total | currency:"&pound;" }}</p>
+				</div>
+		    </div>
+		</div>
+	</div>
+</div>
