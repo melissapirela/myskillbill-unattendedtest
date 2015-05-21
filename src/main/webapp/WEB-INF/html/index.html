@@ -5,15 +5,14 @@
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sky Bill - Unattended Test</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="resources/bower_components/jquery/dist/jquery.js"></script>
+    <script src="resources/bower_components/angular/angular.js"></script>
+    <script src="resources/bower_components/angular-route/angular-route.js"></script>
+    <script src="resources/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="resources/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="resources/css/app.css">
     <script src="resources/js/app.js"></script>
-    <script src="resources/js/services/BillService.js"></script>
-    <script src="resources/js/controllers/BillController.js"></script>
+    <script src="resources/js/bill/bill.js"></script>
     <!-- This script collapses toggled navbar onclick in mobile view-->
     <script type="text/javascript">
       $(document).on('click','.navbar-collapse.in',function(e) {
@@ -24,7 +23,7 @@
     </script>
 </head>
 
-<body ng-app="MySkyBillApp" ng-controller="BillController">
+<body ng-app="MySkyApp" ng-controller="BillController">
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
